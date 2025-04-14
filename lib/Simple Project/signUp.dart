@@ -21,11 +21,11 @@ class _signState extends State<sign> {
   String? _lastnameerrotText;
   String? _psswrderrorText;
   String? _mailerrorText = "Invalid mail";
-  bool? _uppercase= false;
-  bool? _lowercase= false;
-  bool? _spcharacter= false;
-  bool? _numb= false;
-  bool? _length;
+  bool _uppercase= false;
+  bool _lowercase= false;
+  bool _spcharacter= false;
+  bool _numb= false;
+  bool _length= false;
 
   void _validInput(){
     setState(() {
@@ -83,116 +83,52 @@ class _signState extends State<sign> {
   }
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-     // appBar: AppBar(),
       backgroundColor: Colors.purple[100],
-      body: SafeArea(child: Stack(
-        children: [
-          Align(
-            alignment: const Alignment(-085, -0.75),
+      body: Padding(padding: const EdgeInsets.all(8),
+        child: Form(
+          key: _signkey,
+            child: Column(
+              children: [
+                SizedBox(height: 35,),
+              Align(
+            alignment: const Alignment(-0.85, 1),
             child: IconButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=> const myApp()));
-            }, icon: Image.asset('assets/images/back_Arr.png',width: 53,)),
-          ),
-          ListView(
-            children: [
-              Container(
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 9),
-                  child: Center(
-                    child: Form(
-                        key: _signkey,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Create Account",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 45,
-                                color: Colors.blue[900],
-                              ),
+              }, icon: Image.asset('assets/images/back_Arr.png', width: 53,)),),
+                ListView(
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Text("Create Account",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 45,
+                              color: Colors.blue[900],
                             ),
+                          ),
                             Text("Please fill the inputs below",
                               style: TextStyle(
                                 fontSize: 21,
                                 fontStyle: FontStyle.italic,
                                 color: Colors.blue[900],
                               ),
-                            ),
-                            const SizedBox(height: 85,),
-                            const Text("Username",style: TextStyle(
-                              color: Colors.blueAccent,
-                            ),),
-                            TextField(
-                              controller: _surnamecontroller,
-                              decoration: InputDecoration(
-                                  border: const OutlineInputBorder(),
-                                  labelText: 'USername',
-                                  errorText: _surerrorText
-                              ),
-                            ),
-                            const Text("First Name",style: TextStyle(
-                              color: Colors.blueAccent,
-                            ),),
-                            TextField(
-                              controller: _firstnamecontroller,
-                              decoration: InputDecoration(
-                                border: const OutlineInputBorder(),
-                                labelText: 'Surname',
-                                errorText: _firstnameerrorText,
-                              ),
-                            ),
-                            const Text('Last Name',style: TextStyle(
-                              color: Colors.blueAccent,
-                            ),),
-                            TextField(
-                              controller: _lastnamecontroller,
-                              decoration: InputDecoration(
-                                border: const OutlineInputBorder(),
-                                labelText: 'last Name',
-                                errorText: _lastnameerrotText,
-                              ),
-                            ),
-                            const Text('Email',style: TextStyle(
-                              color: Colors.blueAccent,
-                            ),),
-                            TextField(
-                              controller: _emailcontroller,
-                              decoration: InputDecoration(
-                                border: const OutlineInputBorder(),
-                                labelText: '',
-                                errorText:_emailerrorText,
-                              ),
-                            ),
-                            TextField(
-                              controller: _psswrdcontroller,
-                              obscureText: true,
-                              decoration: InputDecoration(
-                                border: const OutlineInputBorder(),
-                                labelText: 'Password',
-                                errorText:_psswrderrorText,
-                              ),
-                              onChanged: _validatepsswrd,
-                            ),
-                            _psswrdRequirement(_length!, "Password must be at least 8 characters"),
-                            _psswrdRequirement(_uppercase!,"At least 1Uppercase"),
-                            _psswrdRequirement(_lowercase!, "At least 1 lowercase"),
-                            _psswrdRequirement(_spcharacter!, "Add some special characters"),
-                            _psswrdRequirement(_numb!, "At least one Number")
+                            ),,
+                        )
 
-                          ],
-                        )),
-                  ),
+                      ],
+                    )
+                  ],
                 )
-              )
-            ],
-          )
-          ],
-            ),
-          )
-      );
+
+
+
+              ],
+            )),
+      ),
+    );
   }
 }

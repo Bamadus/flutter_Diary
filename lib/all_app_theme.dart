@@ -136,3 +136,12 @@ class Home extends StatelessWidget{
 // }, icon: Image.asset('assets/images/back_Arr.png',width: 53,)
 // ),
 // ),
+
+
+// Align(
+// alignment: const Alignment(-0.85, -0.75),
+// child: IconButton(onPressed: (){
+// Navigator.push(context, MaterialPageRoute(builder: (context)=> const myApp()));
+// }, icon: Image.asset('assets/images/back_Arr.png', width: 53,)),),
+
+
