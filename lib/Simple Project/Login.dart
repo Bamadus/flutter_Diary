@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itcooking/bamadus/signUp.dart';
+import 'package:itcooking/Simple Project/signUp.dart';
 
 
 void main(){
