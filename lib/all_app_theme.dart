@@ -145,3 +145,30 @@ class Home extends StatelessWidget{
 // }, icon: Image.asset('assets/images/back_Arr.png', width: 53,)),),
 
 
+// (
+// children: [
+// Column(
+// //mainAxisAlignment: MainAxisAlignment.center,
+// //crossAxisAlignment: CrossAxisAlignment.start,
+// //mainAxisSize: MainAxisSize.min,
+// children: [
+// Text("Create Account",
+// style: TextStyle(
+// fontWeight: FontWeight.bold,
+// fontSize: 45,
+// color: Colors.blue[900],
+// ),
+// ),
+// Text("Please fill the inputs below",
+// style: TextStyle(
+// fontSize: 21,
+// fontStyle: FontStyle.italic,
+// color: Colors.blue[900],
+// ),
+// ),
+//
+//
+// ],
+// )
+// ],
+// )

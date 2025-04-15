@@ -3,11 +3,11 @@ import 'package:itcooking/Simple Project/signUp.dart';
 
 
 void main(){
-  runApp(const myApp());
+  runApp(const MyApp());
 }
 
-class myApp extends StatelessWidget{
-  const myApp({super.key});
+class MyApp extends StatelessWidget{
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                                TextButton(onPressed:(){}, child:const Text("Forgot Password?") ),
                                const Spacer(),
                                TextButton(onPressed: (){
-                                 Navigator.push(context, MaterialPageRoute(builder: (context) => const sign()));
+                                 Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUp()));
                                }, child: const Text('Sign Up'))
                              ],
                            ),
