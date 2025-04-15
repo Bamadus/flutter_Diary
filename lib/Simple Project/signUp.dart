@@ -102,8 +102,7 @@ class _signState extends State<sign> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Center(
-                          child: Text("Create Account",
+                        Text("Create Account",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 45,
@@ -116,8 +115,8 @@ class _signState extends State<sign> {
                                 fontStyle: FontStyle.italic,
                                 color: Colors.blue[900],
                               ),
-                            ),,
-                        )
+                            ),
+
 
                       ],
                     )

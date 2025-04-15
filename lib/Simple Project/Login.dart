@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final textController =TextEditingController(text: 'you');
   final TextEditingController _namecontroller = TextEditingController();
-  TextEditingController _agecontroller = TextEditingController();
+  final TextEditingController _agecontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
   String? _namerrorText;
   String? _ageerrorText;
@@ -85,7 +85,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children:[
                 //Padding(padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                SizedBox(height: 55,),
+                const SizedBox(height: 55,),
                Expanded(
                    child:ListView(
                      children: [Column(
@@ -128,14 +128,14 @@ class _LoginPageState extends State<LoginPage> {
                              decoration: InputDecoration(
                                prefixIcon: IconButton(onPressed: (){
                                  // nothing when the button is pressed yet
-                               }, icon: Icon(Icons.add_circle)
+                               }, icon: const Icon(Icons.add_circle)
                                ),
                                border: const OutlineInputBorder(),
                                hintText: "Reg No",
                                errorText: _ageerrorText,
                              ),
                            ),
-                           SizedBox(height: 15),
+                           const SizedBox(height: 15),
                            Text("Password",
                              style: TextStyle(
                                color: Colors.purple[600],
@@ -154,7 +154,7 @@ class _LoginPageState extends State<LoginPage> {
                            Row(
                              children: [
                                TextButton(onPressed:(){}, child:const Text("Forgot Password?") ),
-                               Spacer(),
+                               const Spacer(),
                                TextButton(onPressed: (){
                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const sign()));
                                }, child: const Text('Sign Up'))
@@ -164,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                            Container(
                              width: 182,
                              height: 45,
-                             margin: EdgeInsets.only(left: 65),
+                             margin: const EdgeInsets.only(left: 65),
                              child: Padding(
                                padding: const EdgeInsets.symmetric(),
                                child: ElevatedButton(onPressed: (){
