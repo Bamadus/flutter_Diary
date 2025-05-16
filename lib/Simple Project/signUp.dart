@@ -16,7 +16,7 @@ class _SignUpState extends State<SignUp> {
   final _lastnamecontroller = TextEditingController();
   final _emailcontroller = TextEditingController();
   final _psswrdcontroller = TextEditingController();
-  String? _emailerrorText;
+  String? _emailerrorText = "This field is Required";
   String? _surerrorText;
   String? _firstnameerrorText;
   String? _lastnameerrotText;
@@ -113,7 +113,7 @@ class _SignUpState extends State<SignUp> {
               padding: const EdgeInsets.all(8),
               child: Form(
                   key: _signkey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  autovalidateMode:AutovalidateMode.onUserInteraction,
                   child: Column(
                     children: [
                       const SizedBox(height: 5,),
@@ -134,10 +134,9 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 15,),
                       TextFormField(
                         controller: _surnamecontroller,
-                        decoration: InputDecoration(
-                            border: const OutlineInputBorder(),
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
                             labelText: 'Username',
-                            errorText: _surerrorText
                         ),
                         validator: (v){
                           if(v!.isEmpty){
@@ -150,10 +149,9 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 9,),
                       TextFormField(
                         controller: _firstnamecontroller,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: const OutlineInputBorder(),
                           labelText: 'Surname',
-                          errorText: _firstnameerrorText,
                         ),
                         validator: (v){
                           if(v!.isEmpty){
@@ -166,10 +164,9 @@ class _SignUpState extends State<SignUp> {
                      const SizedBox(height: 9,),
                       TextFormField(
                         controller: _lastnamecontroller,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: const OutlineInputBorder(),
                           labelText: 'Last Name',
-                          errorText: _lastnameerrotText,
                         ),
                           validator: (v){
                             if(v!.isEmpty){
@@ -182,12 +179,17 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 9,),
                       TextFormField(
                         controller: _emailcontroller,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: const OutlineInputBorder(),
                           labelText: 'Mail',
-                          errorText: _emailerrorText,
                         ),
-                          validator:validateEmail();
+                          validator:(v){
+                          if(v!.isEmpty){
+                            return "This field is Required";
+                          }else{
+                            return null;
+                          }
+                          }
                       ),
                       const SizedBox(height: 9,),
                       TextFormField(
@@ -219,20 +221,26 @@ class _SignUpState extends State<SignUp> {
                       const SizedBox(height: 25),
 
                       Container(
-                        width: 182,
+                        width: 365,
                         height: 56,
-                        margin: const EdgeInsets.only(left: 9),
+                        margin: const EdgeInsets.only(left: 2),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(),
                           child: ElevatedButton(onPressed: (){
                          if(_signkey.currentState!.validate()){
-
+                           validateEmail();
+                           _validInput();
+                           while(true){
+                             Navigator.push(context, MaterialPageRoute(builder: (context)=> const MyApp()));
+                           }
                          }else{
-
                          }
                           },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.blue[900],
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(35),bottomRight:Radius.circular(35))
+                              )
                             ),
                             child: Text('Sign Up',
                               style: TextStyle(
